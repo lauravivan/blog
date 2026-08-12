@@ -1,16 +1,186 @@
 ---
-title: 'First post'
+title: 'UML distilled, a brief guide to the standard Object Modeling Language'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 08 2022'
 heroImage: '../../assets/blog-placeholder-3.jpg'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+## Introdução
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+No mundo da Engenharia de Software podemos utilizar diferentes diagramas para modelar um sistema, desde seu comportamento até a sua estrutura.
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+No caso de sistemas que utilizam da Orientação a Objetos, o Diagrama de Classes se torna essencial para modelar os objetos presentes no sistema e suas relações.
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+Esse artigo traz um _overview_ do Diagrama de Classes com base no livro _**UML Distilled:** A Brief Guide to the Standard Object Modeling Language_ do autor Martin Fowler.
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+## The Essentials
+
+O autor divide os conceitos em 3 perspectivas: **Conceitual**, **Especificação** e **Implementação**.
+
+- Conceitual: da perspectiva conceitual o modelo não terá consideração pelo _software_ a que ele possa ser aplicado, não considera os tipos de dados, a linguagem que será utilizada, etc. O modelo irá representar as coisas que ali existem e como elas são relacionadas entre si.
+- Especificação: se trata de olhar para as **interfaces** de um sistema e não como ele é implementado. O autor traz que, na verdade a chave da programação orientada a objetos é a **interface** da classe e não sua implementação, porém no mundo real isso é constantemente utilizado conjuntamente. Geralmente a palavra "tipo" será utilizada para falar sobre a **interface** de uma classe. Um tipo pode ter diferentes classes que o implementem, e uma classe pode implementar diferentes tipos.
+- Um exemplo simples: supondo que tenhamos uma máquina de suco e essa máquina possui um botão chamado "Fazer suco". A pessoa que está utilizando essa máquina, para ela não interessa como que a máquina faz o suco por dentro, para ela interessa que ao apertar o botão, será feito o suco. Aqui a **interface** é o botão, ou os possíveis botões que estarão disponíveis na máquina. O que tem dentro dela, é a implementação.
+- Implementação: o autor informa que a implementação é geralmente a perspectiva mais utilizada.
+
+Apesar de a perspectiva não ser uma parte formal da UML é extremamente útil na hora de modelar. E a UML pode ser utilizada com qualquer uma das perspectivas vistas acima.
+
+### Associação
+
+A associação é a forma mais comumente utilizada na hora de representar relações entre objetos. Essa relação se torna permanente durante todo o ciclo de vida dos objetos.
+
+Associações podem ser representadas por uma linha contínua ligando 2 objetos, elas podem ou não ter um nome, e elas podem ser uni ou bi direcionais. Essa direção é o que indica a navegabilidade entre os objetos.
+
+Vamos tomar como exemplo a Figura 1, que mostra a relação de um pedido-cliente.
+
+<figure>
+<label>Figura 1 - Pedido x Cliente</label>
+  <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/yzbge0lu0sws1eayyx4q.png" alt="Diagrama de Classes: exemplo pedido x cliente">
+  <figcaption>Fonte: elaborado pela autora (2025)</figcaption>
+</figure>
+
+#### Label: role name
+
+Nesse exemplo não está sendo utilizado um _role name_, porém, ele poderia existir para identificar o papel da classe na associação. Nesse caso, utiliza-se o próprio nome da classe: Pedido e Cliente.
+
+Esse _role name_ é indicado nas extremidades da linha, e pode servir como uma informação extra para auxiliar no entendimento.
+
+#### Multiplicidade
+
+A multiplicidade é representada por 0..._, 1 ou 1...1, 1..._, 0...1, etc. Ela é utilizada para indicar a quantidade de objetos que podem participar da relação. O asterisco indica vários (em teoria infinitos).
+
+Na hora de construir o diagrama, é importante que a multiplicidade vai de onde sai para onde chega. No caso de pedido, ele pode estar relacionado a somente 1 cliente, portanto o referencial da multiplicidade fica na ponta da classe Cliente. Já o cliente pode estar relacionado a 0 ou mais pedidos.
+
+#### Perspectivas
+
+Na visão das perspectivas, a especificação não deve indicar se a relação entre eles é um ponteiro, uma referência, ou se vai ser buscado em um banco de dados. Já a implementação sim.
+
+Especificação:
+
+```
+class Pedido {
+  public Cliente getCliente();
+  public Set getItemsDoPedido();
+```
+
+Implementação:
+
+```
+class Pedido {
+  private Cliente _cliente;
+  private Set _itemsDoPedido;
+
+class Cliente {
+  private Set _pedidos;
+```
+
+Note que na especificação indica que por meio do pedido será possível buscar um cliente e também os itens daquele pedido, porém, não mostra como isso será realizado. Já a implementação mostra que para isso será utilizado referência. Muitas linguagens de programação trabalham com referências em suas classes como é o caso de _Java_, _JavaScript/TypeScript_, _C#_ e _Python_, etc.
+
+#### Navegabilidade
+
+A associação sem a navegabilidade é representada somente por uma linha, porém, ela pode utilizar de setas para indicar navegação (Figura 1).
+
+Nesse caso ela mostra que a partir de um pedido é possível saber quem é o cliente. Se a seta fosse o contrário, seria possível descobrir o pedido a partir do cliente. Sem a seta, dependendo do contexto, indica que é uma relação que ainda não se sabe a navegabilidade ou que ambos conseguem se "ver" mutualmente.
+
+Mesmo sem o uso da seta, tanto na especificação como na implementação é possível ter uma ideia dessa navegabilidade como foi abordado no tópico perspectivas.
+
+### Generalização
+
+A Generalização envolve o conceito de _supertypes_ (supertipos) e _subtypes_ (subtipos), em que, os subtipos possuem diferenças e similaridades entre si, e suas similaridades podem ser "reunidas" no supertipo.
+
+Conceitualmente, o subtipo será um subtipo do supertipo se todas as instâncias do subtipo forem por definição instâncias do supertipo. Portanto, o subtipo é um tipo especial do supertipo. Tudo o que for verdade para o supertipo (associações, atributos, métodos) é também verdade para o subtipo.
+
+Isso na perspectiva da especificação é entendido como, a **interface** de um (subtipo) precisa incluir todos os elementos da interface do outro (supertipo). Isso é o que chamamos de Princípio da Substituibilidade. Mesmo que o subtipo possa ter coisas que funcionam de forma diferente do supertipo, para o supertipo é indiferente, deve funcionar corretamente independente do subtipo sendo utilizado (polimorfismo).
+
+Portanto, deve-se conseguir utilizar um subtipo onde é solicitado o supertipo, sem precisar adaptar algo.
+
+<figure>
+<label>Figura 2 - Supertipo e subtipos</label>
+  <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/b3md333dtlgc1tkwpjd3.png" alt="Diagrama de Classes: exemplo generalização">
+  <figcaption>Fonte: elaborado pela autora (2025)</figcaption>
+</figure>
+
+Na implementação, isso é conhecido como Herança. Uma subclasse herda todos os atributos e métodos da superclasse podendo sobrescrever métodos se necessário. Portanto, subclasses são uma forma de implementar subtipos.
+
+Outra forma é por meio de **delegation** (delegação) que ao invés de herdar, cria-se um atributo interno que representa a superclasse e delega a ela coisas a serem feitas. Isso é bom quando se precisa evitar acoplamento forte e rigidez de classes.
+
+## Advanced Concepts
+
+Da associação deriva-se a agregação, e a composição se mostra um tipo mais avançado de agregação (agregação forte).
+
+A Figura 3 será o exemplo para melhor compreensão dos conceitos.
+
+<figure>
+<label>Figura 3 - Agregação e Composição</label>
+  <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jt34zs9u4k3gum7qthr2.png" alt="Diagrama de Classes: exemplo agregação e composição">
+  <figcaption>Fonte: elaborado pela autora (2025)</figcaption>
+</figure>
+
+Nos tópicos abaixo são abordadas cada uma.
+
+### Agregação
+
+No processo de modelagem do meu sistema (Acessiweb) para o meu Trabalho de Conclusão de Curso, em diversos momentos me vi confundindo conceito (design, regras de domínio) e implementação (código). E isso se fez bastante presente na parte de agregação x composição.
+
+Um dos conceitos **core** nesse cenário é a exclusão em cascata (se um objeto morre, os demais objetos relacionados morrem com ele). Na prática, qualquer associação com forte dependência (multiplicidade 1..1 ou 1..\*) estará sujeita a sofrer essa ação por questões lógicas ou de integridade e isso precisará ser definido ou pela regra de negócio da aplicação, ou pelo banco de dados, ou ambos.
+
+Se um pedido está relacionado a um cliente, a partir do momento que esse cliente deixar de existir, todos os seus pedidos, incluindo os itens dos pedidos também deixarão de existir. Isso é algo "esperado", "lógico", porém precisa ser implementado. E aí entra a diferença de agregação e composição, no quesito do que é esperado de seu comportamento ao ser implementado.
+
+A agregação é um tipo de associação que nos indica uma fraca relação entre dois objetos em que um deles será a parte (objeto 1) de um todo (objeto 2). A parte (objeto 1) vive independente do todo (objeto 2).
+
+Supondo que há um objeto que define o estilo de uma forma geométrica (outro objeto). Ao instanciar a classe de estilo (criar o objeto propriamente), esse estilo pode ser utilizado em diferentes formas geométricas. Se uma forma geométrica for excluída, o estilo em tese não precisa ser excluído. Portanto, o estilo faz parte da forma geométrica, mas não depende dela para existir.
+
+Um exemplo extraído do Acessiweb é a relação entre Projeto e Usuário.
+Um usuário pode criar zero ou vários projetos, e um projeto sempre pertence a um único usuário.
+
+Minha principal dúvida ao modelar essa relação foi entender até que ponto o projeto dependia da existência do usuário. Em termos de regra de negócio, faz sentido que, ao excluir o usuário, seus projetos também sejam excluídos, pois são de sua responsabilidade e autoria. No entanto, do ponto de vista estrutural (de modelagem), o projeto é uma entidade independente — possui atributos próprios e poderia existir isoladamente, com a associação ao usuário sendo apenas um de seus vínculos. Então dessa forma, é uma decisão excluir ou não o projeto, mas estruturalmente (conceito), ele não precisa deixar de existir se o usuário não existir mais.
+
+A regra de negócio do sistema exigia que um projeto só pode ser criado por um usuário, então necessitaria haver a instância daquele usuário e ela precisaria estar relacionada ao projeto. Além disso, uma vez vinculado a um usuário, essa associação é imutável, ou seja, o projeto não troca de usuário. Mesmo assim, essa relação não deixa de ser uma agregação.
+
+Pelo exemplo da Figura 3, um livro pode estar relacionado com 1 ou mais autores, e um autor pode estar relacionado com 0 ou mais livros. Se um livro for excluído do sistema, o autor não será excluído junto com ele, pois ele pode ter mais livros relacionados. Da mesma forma que se um autor for excluído, o livro está relacionado com outros autores, e é uma entidade própria.
+
+### Composição
+
+A composição é uma variação mais forte da agregação. O objeto-parte que pertencer ao objeto-todo deve pertencer somente a um único objeto-todo, em que se espera que as partes morram com o todo.
+
+Supondo que haja um objeto Ponto e outro objeto Aresta e outro objeto Círculo. Os objetos Ponto e Aresta são objetos-parte do objeto-todo Círculo. Isso porque, um ponto só pode estar presente em uma forma geométrica por vez (conceitualmente), ou seja, ao instanciar a classe Ponto e criar um objeto de ponto não é possível utilizar esse objeto instanciado com outras formas geométricas. No momento em que o círculo é removido, todos os seus pontos e arestas **devem** ser removidos junto com ele, visto que não fazem sentido existirem sem ele.
+
+Conceitualmente a composição indica que esse objeto-parte não faz sentido sem o seu objeto-todo. Na prática, é permitido criar uma instância de ponto e ela não é automaticamente removida do sistema, da mesma forma que na agregação, porém, é lógico que ela tenha que ser excluída. Cheguei a me perguntar se esse ponto não poderia ser instanciado fora e por sua vez, sendo instanciado somente no momento que o objeto-todo fosse instanciado, ao ser excluído do sistema, as instâncias de suas partes também seriam excluídas.
+
+Então mesmo que na implementação seja permitido utilizar um Ponto, por exemplo, em diferentes instâncias de círculo, em termos de _design_ isso é incorreto, pois trata-se de composição.
+
+Exemplo de implementação incorreta de um caso de composição:
+
+```
+const ponto = new Ponto(1, 2);
+
+const circuloA = new Circulo(ponto);
+
+delete circuloA;
+const circuloB = new Circulo(ponto);
+```
+
+Mesmo que não seja necessário, é possível forçar a implementação da composição da forma que eu havia pensado em um momento (como falei acima):
+
+```
+class Circulo {
+  constructor(x, y, r) {
+    this.centro = new Ponto(x, y);
+  }
+}
+```
+
+Ao instanciar ponto dentro de círculo.
+
+---
+
+### Agregação e Composição, representação
+
+Na hora de construir o diagrama e indicar as relações de agregação e composição, sempre lembre da navegabilidade de onde está saindo para onde está indo.
+
+No caso da agregação, o losango branco é conectado ao objeto-todo. Da mesma forma que o na composição, o losango preto é conectado ao objeto-todo. A diferença é que na composição o objeto-todo é dono do objeto-parte, e na agregação, o objeto-todo utiliza o objeto-parte mas não é dono exclusivo dele.
+
+Portanto, "o losango fica do lado de quem controla a relação".
+
+## Referências
+
+FOWLER, Martin. **UML distilled:** a brief guide to the standard Object Modeling Language. 2nd ed. Reading, MA: Addison-Wesley, 2000
