@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import Photo from '../assets/photo.jpg';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
@@ -12,38 +14,43 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	</head>
 	<body>
 		<Header />
+		<hr/>
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
 			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
+				Hi, I'm Laura. 
 			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<div class="text-with-photo">
+				<p>
+				I'm a passionate Web Developer with a strong foundation in Front-End development and a growing interest in becoming a well-rounded Full Stack Web Developer. I hold a degree in Information Systems from the Instituto Federal de Santa Catarina (IFSC), where I had the opportunity to work on projects that combined technology with real-world challenges. One of these experiences was a university extension project focused on developing a web application with Django to automate the triage process in health centers and hospitals.</p>
+				<Image class="my-photo" src={Photo} alt="" />
+			</div>
+			<p>Throughout my journey, I've also worked on projects with a strong focus on accessibility and social impact. I developed AcessiWeb, a web system designed to make WCAG accessibility guidelines easier to understand while implementing some of these practices directly into the application to improve the experience for users with different accessibility needs. Later, I joined Lacrei Saúde, a social-impact health tech that connects the LGBTQIAPN+ community with inclusive and qualified healthcare professionals, where I grew as a developer and eventually took on the role of Front-End Tech Lead.</p>
+			<p>My professional experience also includes working as a contractor on a payment management system that helps companies manage partners, services, and charges while processing payments to multiple partners through a single transaction. The system integrates with a payment API and gave me valuable experience building solutions around real business needs. I also contributed to Estudos Arquivados, a project that uses the arquivo.pt API to help Portuguese students find relevant academic content based on their school year and subjects. The project also leverages OpenAI's LLM to identify related words and expressions from user input, improving the accuracy of the search filters.</p>
+			<p>Outside of professional projects, I enjoy experimenting and learning through side projects such as Notion-portfolio, Yoko!, and Koda. These projects allow me to explore new ideas, technologies, and approaches while continuing to grow as a developer. Overall, I'm driven by curiosity and a desire to build useful, accessible, and well-crafted web experiences—and I'm excited to keep expanding my skills toward becoming a great Full Stack Web Developer.</p>
 		</main>
+		<hr/>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.text-with-photo {
+		display: flex;
+
+		@media (max-width: 600px) {
+			flex-direction: column-reverse;
+		}
+	}
+
+	.my-photo {
+		max-width: 280px;
+		max-height: 280px;
+		object-fit: cover;
+		border-radius: 100%;
+
+		@media (max-width: 600px) {
+			max-width: 200px;
+			max-height: 200px;
+		}
+	}
+</style>

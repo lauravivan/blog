@@ -1,8 +1,7 @@
 ---
 title: 'UML distilled, a brief guide to the standard Object Modeling Language'
 description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 08 2022'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+pubDate: 'jun 2025'
 ---
 
 ## Introdução
