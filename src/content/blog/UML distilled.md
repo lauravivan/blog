@@ -1,6 +1,7 @@
 ---
 title: 'UML distilled, a brief guide to the standard Object Modeling Language: Class Diagram'
 pubDate: 'jun 2025'
+updatedDate: '20 aug 2026'
 ---
 
 ## Introdução
