@@ -3,6 +3,10 @@ title: 'UML distilled, a brief guide to the standard Object Modeling Language'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'jun 2025'
 ---
+import { Image } from 'astro:assets';
+import ClassDiagramOrderClient from "../../assets/class-diagram-order-vs-client.png"
+import ClassDiagramGeneralization from "../../assets/class-diagram-generalization.png" 
+import ClassDiagramAggComp from "../../assets/class-diagram-aggregation-vs-composition.png"
 
 ## Introdução
 
@@ -32,8 +36,8 @@ Associações podem ser representadas por uma linha contínua ligando 2 objetos,
 Vamos tomar como exemplo a Figura 1, que mostra a relação de um pedido-cliente.
 
 <figure>
-<label>Figura 1 - Pedido x Cliente</label>
-  <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/yzbge0lu0sws1eayyx4q.png" alt="Diagrama de Classes: exemplo pedido x cliente">
+  <label>Figura 1 - Pedido x Cliente</label>
+  <Image src={ClassDiagramOrderClient} alt="Diagrama de Classes: exemplo pedido x cliente" />
   <figcaption>Fonte: elaborado pela autora (2025)</figcaption>
 </figure>
 
@@ -93,8 +97,8 @@ Isso na perspectiva da especificação é entendido como, a **interface** de um 
 Portanto, deve-se conseguir utilizar um subtipo onde é solicitado o supertipo, sem precisar adaptar algo.
 
 <figure>
-<label>Figura 2 - Supertipo e subtipos</label>
-  <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/b3md333dtlgc1tkwpjd3.png" alt="Diagrama de Classes: exemplo generalização">
+  <label>Figura 2 - Supertipo e subtipos</label>
+  <Image src={ClassDiagramGeneralization} alt="Diagrama de Classes: exemplo generalização"/>
   <figcaption>Fonte: elaborado pela autora (2025)</figcaption>
 </figure>
 
@@ -109,8 +113,8 @@ Da associação deriva-se a agregação, e a composição se mostra um tipo mais
 A Figura 3 será o exemplo para melhor compreensão dos conceitos.
 
 <figure>
-<label>Figura 3 - Agregação e Composição</label>
-  <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jt34zs9u4k3gum7qthr2.png" alt="Diagrama de Classes: exemplo agregação e composição">
+  <label>Figura 3 - Agregação e Composição</label>
+  <Image src={ClassDiagramAggComp} alt="Diagrama de Classes: exemplo agregação e composição"/>
   <figcaption>Fonte: elaborado pela autora (2025)</figcaption>
 </figure>
 
