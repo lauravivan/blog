@@ -1,6 +1,5 @@
 ---
-title: 'UML distilled, a brief guide to the standard Object Modeling Language'
-description: 'Lorem ipsum dolor sit amet'
+title: 'UML distilled, a brief guide to the standard Object Modeling Language: Class Diagram'
 pubDate: 'jun 2025'
 ---
 
